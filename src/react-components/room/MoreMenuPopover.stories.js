@@ -25,8 +25,8 @@ const menu = [
     id: "user",
     label: "You",
     items: [
-      { id: "user-profile", label: "Change Name & Avatar", icon: AvatarIcon },
-      { id: "favorite-room", label: "Favorite Room", icon: StarOutlineIcon },
+      // { id: "user-profile", label: "Change Name & Avatar", icon: AvatarIcon },
+      // { id: "favorite-room", label: "Favorite Room", icon: StarOutlineIcon },
       { id: "preferences", label: "Preferences", icon: SettingsIcon }
     ]
   },

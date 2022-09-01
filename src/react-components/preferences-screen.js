@@ -344,10 +344,10 @@ ListItem.propTypes = {
 };
 
 const preferenceLabels = defineMessages({
-  preferredCamera: {
-    id: "preferences-screen.preference.preferred-camera",
-    defaultMessage: "Preferred camera"
-  },
+  // preferredCamera: {
+  //   id: "preferences-screen.preference.preferred-camera",
+  //   defaultMessage: "Preferred camera"
+  // },
   preferredMic: {
     id: "preferences-screen.preference.preferred-mic",
     defaultMessage: "Preferred mic"
@@ -412,34 +412,34 @@ const preferenceLabels = defineMessages({
     id: "preferences-screen.preference.movement-speed-modifier",
     defaultMessage: "Movement speed modifier"
   },
-  enableOnScreenJoystickLeft: {
-    id: "preferences-screen.preference.enable-on-screen-joystick-left",
-    defaultMessage: "Enable left on-screen joystick for moving around"
-  },
-  enableOnScreenJoystickRight: {
-    id: "preferences-screen.preference.enable-on-screen-joystick-right",
-    defaultMessage: "Enable right on-screen joystick for looking around"
-  },
-  enableGyro: {
-    id: "preferences-screen.preference.enable-gyro",
-    defaultMessage: "Enable gyroscope (when supported by browser/device)"
-  },
-  invertTouchscreenCameraMove: {
-    id: "preferences-screen.preference.invert-touchscreen-camera-move",
-    defaultMessage: "Invert direction of camera movement for touchscreens"
-  },
-  locale: {
-    id: "preferences-screen.preference.locale",
-    defaultMessage: "Language"
-  },
-  animateWaypointTransitions: {
-    id: "preferences-screen.preference.animate-waypoint-transitions",
-    defaultMessage: "Animate waypoint transitions"
-  },
-  showFPSCounter: {
-    id: "preferences-screen.preference.show-fps-counter",
-    defaultMessage: "Show FPS Counter"
-  },
+  // enableOnScreenJoystickLeft: {
+  //   id: "preferences-screen.preference.enable-on-screen-joystick-left",
+  //   defaultMessage: "Enable left on-screen joystick for moving around"
+  // },
+  // enableOnScreenJoystickRight: {
+  //   id: "preferences-screen.preference.enable-on-screen-joystick-right",
+  //   defaultMessage: "Enable right on-screen joystick for looking around"
+  // },
+  // enableGyro: {
+  //   id: "preferences-screen.preference.enable-gyro",
+  //   defaultMessage: "Enable gyroscope (when supported by browser/device)"
+  // },
+  // invertTouchscreenCameraMove: {
+  //   id: "preferences-screen.preference.invert-touchscreen-camera-move",
+  //   defaultMessage: "Invert direction of camera movement for touchscreens"
+  // },
+  // locale: {
+  //   id: "preferences-screen.preference.locale",
+  //   defaultMessage: "Language"
+  // },
+  // animateWaypointTransitions: {
+  //   id: "preferences-screen.preference.animate-waypoint-transitions",
+  //   defaultMessage: "Animate waypoint transitions"
+  // },
+  // showFPSCounter: {
+  //   id: "preferences-screen.preference.show-fps-counter",
+  //   defaultMessage: "Show FPS Counter"
+  // },
   maxResolution: {
     id: "preferences-screen.preference.max-resolution",
     defaultMessage: "Max Resolution"
@@ -456,58 +456,58 @@ const preferenceLabels = defineMessages({
     id: "preferences-screen.preference.disable-auto-pixel-ratio",
     defaultMessage: "Disable automatic pixel ratio adjustments"
   },
-  allowMultipleHubsInstances: {
-    id: "preferences-screen.preference.allow-multiple-hubs-instances",
-    defaultMessage: "Disable auto-exit when multiple hubs instances are open"
-  },
-  disableIdleDetection: {
-    id: "preferences-screen.preference.disable-idle-detection",
-    defaultMessage: "Disable auto-exit when idle or backgrounded"
-  },
-  preferMobileObjectInfoPanel: {
-    id: "preferences-screen.preference.prefer-mobile-object-info-panel",
-    defaultMessage: "Prefer Mobile Object Info Panel"
-  },
-  showRtcDebugPanel: {
-    id: "preferences-screen.preference.show-rtc-debug-panel",
-    defaultMessage: "Show RTC Panel"
-  },
-  showAudioDebugPanel: {
-    id: "preferences-screen.preference.show-audio-debug-panel",
-    defaultMessage: "Show Audio Debug Panel"
-  },
-  audioPanningQuality: {
-    id: "preferences-screen.preference.audio-panning-quality",
-    defaultMessage: "Panning quality"
-  },
-  enableAudioClipping: {
-    id: "preferences-screen.preference.enable-audio-clipping",
-    defaultMessage: "Enable Audio Clipping"
-  },
-  audioClippingThreshold: {
-    id: "preferences-screen.preference.audio-clipping-threshold",
-    defaultMessage: "Audio Clipping Threshold"
-  },
-  theme: {
-    id: "preferences-screen.preference.theme",
-    defaultMessage: "Theme"
-  },
-  fastRoomSwitching: {
-    id: "preferences-screen.preference.fast-room-switching",
-    defaultMessage: "Enable Fast Room Switching"
-  },
+  // allowMultipleHubsInstances: {
+  //   id: "preferences-screen.preference.allow-multiple-hubs-instances",
+  //   defaultMessage: "Disable auto-exit when multiple hubs instances are open"
+  // },
+  // disableIdleDetection: {
+  //   id: "preferences-screen.preference.disable-idle-detection",
+  //   defaultMessage: "Disable auto-exit when idle or backgrounded"
+  // },
+  // preferMobileObjectInfoPanel: {
+  //   id: "preferences-screen.preference.prefer-mobile-object-info-panel",
+  //   defaultMessage: "Prefer Mobile Object Info Panel"
+  // },
+  // showRtcDebugPanel: {
+  //   id: "preferences-screen.preference.show-rtc-debug-panel",
+  //   defaultMessage: "Show RTC Panel"
+  // },
+  // showAudioDebugPanel: {
+  //   id: "preferences-screen.preference.show-audio-debug-panel",
+  //   defaultMessage: "Show Audio Debug Panel"
+  // },
+  // audioPanningQuality: {
+  //   id: "preferences-screen.preference.audio-panning-quality",
+  //   defaultMessage: "Panning quality"
+  // },
+  // enableAudioClipping: {
+  //   id: "preferences-screen.preference.enable-audio-clipping",
+  //   defaultMessage: "Enable Audio Clipping"
+  // },
+  // audioClippingThreshold: {
+  //   id: "preferences-screen.preference.audio-clipping-threshold",
+  //   defaultMessage: "Audio Clipping Threshold"
+  // },
+  // theme: {
+  //   id: "preferences-screen.preference.theme",
+  //   defaultMessage: "Theme"
+  // },
+  // fastRoomSwitching: {
+  //   id: "preferences-screen.preference.fast-room-switching",
+  //   defaultMessage: "Enable Fast Room Switching"
+  // },
   lazyLoadSceneMedia: {
     id: "preferences-screen.preference.lazy-load-scene-media",
     defaultMessage: "Enable Scene Media Lazy Loading"
   },
-  disableLeftRightPanning: {
-    id: "preferences-screen.preference.disable-panning",
-    defaultMessage: "Disable audio left/right panning"
-  },
-  cursorSize: {
-    id: "preferences-screen.preference.cursor-size",
-    defaultMessage: "Cursor Size"
-  },
+  // disableLeftRightPanning: {
+  //   id: "preferences-screen.preference.disable-panning",
+  //   defaultMessage: "Disable audio left/right panning"
+  // },
+  // cursorSize: {
+  //   id: "preferences-screen.preference.cursor-size",
+  //   defaultMessage: "Cursor Size"
+  // },
   nametagVisibility: {
     id: "preferences-screen.preference.nametag-visibility",
     defaultMessage: "Show Nametag"
@@ -543,14 +543,14 @@ class PreferenceListItem extends Component {
     const intl = this.props.intl;
     const isCheckbox = this.props.itemProps.prefType === PREFERENCE_LIST_ITEM_TYPE.CHECK_BOX;
     const isSmallScreen = window.innerWidth < 600;
-    const label = (
+    const label = preferenceLabels[this.props.storeKey] ? (
       <span className={styles.preferenceLabel}>{intl.formatMessage(preferenceLabels[this.props.storeKey])}</span>
-    );
+    ) : null;
     const prefSchema = this.props.store.schema.definitions.preferences.properties;
     const hasPref =
       this.props.itemProps.prefType === PREFERENCE_LIST_ITEM_TYPE.MAX_RESOLUTION
         ? this.props.store.state.preferences.maxResolutionWidth !== undefined ||
-          this.props.store.state.preferences.maxResolutionHeight !== undefined
+        this.props.store.state.preferences.maxResolutionHeight !== undefined
         : this.props.store.state.preferences[this.props.storeKey] !== prefSchema[this.props.storeKey].default;
     const resetToDefault = hasPref ? (
       <ResetToDefaultButton
@@ -581,7 +581,7 @@ class PreferenceListItem extends Component {
     const indent = this.props.itemProps.disableIfTrue || this.props.itemProps.disableIfFalse;
 
     if (isCheckbox) {
-      return (
+      return label ? (
         <ListItem disabled={disabled} indent={indent}>
           <div className={styles.row}>
             <Control itemProps={this.props.itemProps} store={this.props.store} setValue={this.props.setValue} />
@@ -589,9 +589,9 @@ class PreferenceListItem extends Component {
             <div className={styles.rowRight}>{resetToDefault}</div>
           </div>
         </ListItem>
-      );
+      ) : null;
     } else if (isSmallScreen) {
-      return (
+      return label ? (
         <ListItem disabled={disabled} indent={indent}>
           <div className={styles.column}>
             <div className={styles.row}>
@@ -606,9 +606,9 @@ class PreferenceListItem extends Component {
             </div>
           </div>
         </ListItem>
-      );
+      ) : null;
     }
-    return (
+    return label ? (
       <ListItem disabled={disabled} indent={indent}>
         <div className={styles.row}>
           {<CheckboxPlaceholder />}
@@ -619,7 +619,7 @@ class PreferenceListItem extends Component {
           <div className={styles.rowRight}>{resetToDefault}</div>
         </div>
       </ListItem>
-    );
+    ) : null;
   }
 }
 
@@ -1031,15 +1031,15 @@ class PreferencesScreen extends Component {
             step: 5,
             digits: 0
           },
-          {
-            key: "avatarVoiceLevels",
-            prefType: PREFERENCE_LIST_ITEM_TYPE.MAP_COUNT,
-            defaultValue: 0,
-            text: intl.formatMessage({
-              id: "preferences-screen.preference.avatar-volumes.entries",
-              defaultMessage: "Entries"
-            })
-          },
+          // {
+          //   key: "avatarVoiceLevels",
+          //   prefType: PREFERENCE_LIST_ITEM_TYPE.MAP_COUNT,
+          //   defaultValue: 0,
+          //   text: intl.formatMessage({
+          //     id: "preferences-screen.preference.avatar-volumes.entries",
+          //     defaultMessage: "Entries"
+          //   })
+          // },
           {
             key: "disableSoundEffects",
             prefType: PREFERENCE_LIST_ITEM_TYPE.CHECK_BOX

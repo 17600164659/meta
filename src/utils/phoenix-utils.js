@@ -46,7 +46,8 @@ let invalidatedReticulumMetaThisSession = false;
 
 export function getReticulumFetchUrl(path, absolute = false, host = null, port = null) {
   if (host || hasReticulumServer()) {
-    return `https://${host || configs.RETICULUM_SERVER}${port ? `:${port}` : ""}${path}`;
+    const h = (host === 'app.metaio.cc' || host === null) && path === '/api/v1/media' ? 'api.metaio.cc' : host;
+    return `https://${h || configs.RETICULUM_SERVER}${port ? `:${port}` : ""}${path}`;
   } else if (absolute) {
     resolverLink.href = path;
     return resolverLink.href;
@@ -403,8 +404,7 @@ export const tryGetMatchingMeta = async ({ ret_pool, ret_version }, shouldAbando
       // Add randomness to the first request avoid flooding reticulum.
       const delayMS = attempt * backoffMS + (attempt === 0 ? Math.random() * randomMS : 0);
       console.log(
-        `[reconnect] Getting reticulum meta in ${Math.ceil(delayMS / 1000)} seconds.${
-          attempt ? ` (Attempt ${attempt + 1} of ${maxAttempts})` : ""
+        `[reconnect] Getting reticulum meta in ${Math.ceil(delayMS / 1000)} seconds.${attempt ? ` (Attempt ${attempt + 1} of ${maxAttempts})` : ""
         }`
       );
       await sleep(delayMS);

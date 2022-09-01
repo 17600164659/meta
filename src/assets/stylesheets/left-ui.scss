@@ -1,0 +1,138 @@
+.left-ui-container {
+  position: fixed;
+  left: 0;
+  top: 110px;
+  z-index: 9999;
+  width: 200px;
+
+  .left-ui-btn-container {
+    width: 100px;
+    position: relative;
+    left: -10px;
+    padding: 14px;
+    padding-right: 30px;
+    padding-left: 35px;
+    margin-left: -20px;
+    border-radius: 10000px;
+    background: #fff;
+    display: inline-block;
+    cursor: pointer;
+    height: 56px;
+  }
+
+  .left-ui-btn {
+    width: 32px;
+    height: 28px;
+    position: absolute;
+    top: 14px;
+    right: 18px;
+  }
+
+  .left-ui-nav-container {
+    width: 100%;
+    position: relative;
+    left: -200px;
+    transition: all .3s;
+
+    &.active {
+      left: 0;
+    }
+
+    .left-ui-nav {
+      width: 110%;
+
+      .nav-style {
+        width: 100%;
+        display: inline-flex;
+        margin-top: 22px;
+        padding-left: 46px;
+        margin-left: -26px;
+        border-radius: 10000px;
+        align-items: center;
+        position: relative;
+        background: #fff;
+        cursor: pointer;
+
+        .text {
+          font-family: 'Helvetica';
+          font-style: italic;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 18px;
+          color: #2F2F2F;
+        }
+
+        .icon {
+          position: absolute;
+          right: 14px;
+          top: 12px;
+        }
+
+      }
+
+      .main-nav {
+        height: 56px;
+        // width: 180px;
+
+        .text {
+          font-size: 16px;
+        }
+
+        .icon {
+          right: 14px;
+          top: 12px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      .children-nav-container {
+        transition: all 0.3s;
+
+        .children-nav {
+          height: 47px;
+          width: 90%;
+
+          .text {
+            font-size: 12px;
+          }
+
+          .icon {
+            width: 24px;
+            height: 24px;
+            right: 12px;
+            top: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .fullscreen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+
+    &.active {
+      display: flex;
+    }
+
+    .xximg {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .fullscreen-img {
+      width: 100%;
+    }
+  }
+}

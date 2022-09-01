@@ -192,14 +192,14 @@ export default class MediaDevicesManager extends EventEmitter {
     return new Promise(resolve => {
       navigator.mediaDevices.enumerateDevices().then(mediaDevices => {
         mediaDevices = mediaDevices.filter(d => d.label !== "");
-        this._micDevices = mediaDevices
+        this._micDevices = window.APP.mediaDevicesManager._micDevices
           .filter(d => d.deviceId !== "default" && d.kind === "audioinput")
-          .map(d => ({ value: d.deviceId, label: d.label || `Mic Device (${d.deviceId.substring(0, 9)})` }));
-        this._videoDevices = mediaDevices
+          .map(d => ({ value: d.deviceId, label: d.label || `Mic Device (${d.deviceId.substring(0, 9)})` }))
+        this._videoDevices = window.APP.mediaDevicesManager._videoDevices
           .filter(d => d.deviceId !== "default" && d.kind === "videoinput")
-          .map(d => ({ value: d.deviceId, label: d.label || `Camera Device (${d.deviceId.substring(0, 9)})` }));
+          .map(d => ({ value: d.deviceId, label: d.label || `Camera Device (${d.deviceId.substring(0, 9)})` }))
         if (MediaDevicesManager.isAudioOutputSelectEnabled) {
-          this._outputDevices = mediaDevices
+          this._outputDevices = window.APP.mediaDevicesManager._outputDevices
             .filter(d => d.deviceId !== "default" && d.kind === "audiooutput")
             .map(d => ({ value: d.deviceId, label: d.label || `Audio Output (${d.deviceId.substring(0, 9)})` }));
         }

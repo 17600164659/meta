@@ -59,9 +59,9 @@ export function SceneUrlModal({ enableSpoke, editorName, onValidateUrl, onSubmit
           ref={register({ validate: onValidateUrl })}
           error={errors.url && errors.url.message}
         />
-        <Button type="submit" preset="accept" disabled={isSubmitting}>
+        {/* <Button type="submit" preset="accept" disabled={isSubmitting}>
           <FormattedMessage id="scene-url-modal.change-scene-button" defaultMessage="Change Scene" />
-        </Button>
+        </Button> */}
         {enableSpoke && (
           <>
             <p>

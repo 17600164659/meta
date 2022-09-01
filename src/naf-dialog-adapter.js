@@ -3,6 +3,7 @@ import protooClient from "protoo-client";
 import { debug as newDebug } from "debug";
 import EventEmitter from "eventemitter3";
 import { MediaDevices } from "./utils/media-devices-utils";
+import { createAgora, rtc } from './agora';
 
 // Used for VP9 webcam video.
 //const VIDEO_KSVC_ENCODINGS = [{ scalabilityMode: "S3T3_KEY" }];
@@ -139,14 +140,14 @@ export class DialogAdapter extends EventEmitter {
       }
       return result;
     } catch (e) {
-      this.emitRTCEvent("error", "Adapter", () => `Error getting the server status: ${e}`);
+      this.emitRTCDebugEvent("error", "Adapter", () => `Error getting the server status: ${e}`);
       return { error: `Error getting the server status: ${e}` };
     }
   }
 
   async iceRestart(transport) {
     // Force an ICE restart to gather new candidates and trigger a reconnection
-    this.emitRTCEvent(
+    this.emitRTCDebugEvent(
       "log",
       "RTC",
       () => `Restarting ${transport.id === this._sendTransport.id ? "send" : "receive"} transport ICE`
@@ -156,7 +157,7 @@ export class DialogAdapter extends EventEmitter {
   }
 
   async recreateSendTransport(iceServers) {
-    this.emitRTCEvent("log", "RTC", () => `Recreating send transport ICE`);
+    this.emitRTCDebugEvent("log", "RTC", () => `Recreating send transport ICE`);
     await this.closeSendTransport();
     await this.createSendTransport(iceServers);
   }
@@ -180,7 +181,7 @@ export class DialogAdapter extends EventEmitter {
         await this.recreateSendTransport(iceServers);
       }
     } catch (err) {
-      this.emitRTCEvent("error", "RTC", () => `Send transport [recreate] failed: ${err}`);
+      this.emitRTCDebugEvent("error", "RTC", () => `Send transport [recreate] failed: ${err}`);
     }
   }
 
@@ -197,7 +198,7 @@ export class DialogAdapter extends EventEmitter {
   }
 
   async recreateRecvTransport(iceServers) {
-    this.emitRTCEvent("log", "RTC", () => `Recreating receive transport ICE`);
+    this.emitRTCDebugEvent("log", "RTC", () => `Recreating receive transport ICE`);
     await this.closeRecvTransport();
     await this.createRecvTransport(iceServers);
     await this._protoo.request("refreshConsumers");
@@ -222,7 +223,7 @@ export class DialogAdapter extends EventEmitter {
         await this.recreateRecvTransport(iceServers);
       }
     } catch (err) {
-      this.emitRTCEvent("error", "RTC", () => `Receive transport [recreate] failed: ${err}`);
+      this.emitRTCDebugEvent("error", "RTC", () => `Receive transport [recreate] failed: ${err}`);
     }
   }
 
@@ -263,6 +264,8 @@ export class DialogAdapter extends EventEmitter {
     urlWithParams.searchParams.append("roomId", this._roomId);
     urlWithParams.searchParams.append("peerId", this._clientId);
 
+    const rtc = await createAgora();
+
     // TODO: Establishing connection could take a very long time.
     //       Inform the user if we are stuck here.
     const protooTransport = new protooClient.WebSocketTransport(urlWithParams.toString(), {
@@ -271,24 +274,24 @@ export class DialogAdapter extends EventEmitter {
     this._protoo = new protooClient.Peer(protooTransport);
 
     this._protoo.on("disconnected", () => {
-      this.emitRTCEvent("info", "Signaling", () => `Disconnected`);
+      this.emitRTCDebugEvent("info", "Signaling", () => `Disconnected`);
       this.cleanUpLocalState();
     });
 
     this._protoo.on("failed", attempt => {
-      this.emitRTCEvent("error", "Signaling", () => `Failed: ${attempt}, retrying...`);
+      this.emitRTCDebugEvent("error", "Signaling", () => `Failed: ${attempt}, retrying...`);
     });
 
     this._protoo.on("close", async () => {
       // We explicitly disconnect event handlers when closing the socket ourselves,
       // so if we get into here, we were not the ones closing the connection.
-      this.emitRTCEvent("error", "Signaling", () => `Closed`);
+      this.emitRTCDebugEvent("error", "Signaling", () => `Closed`);
       this._retryConnectWithNewHost();
     });
 
     // eslint-disable-next-line no-unused-vars
     this._protoo.on("request", async (request, accept, reject) => {
-      this.emitRTCEvent("info", "Signaling", () => `Request [${request.method}]: ${request.data?.id}`);
+      this.emitRTCDebugEvent("info", "Signaling", () => `Request [${request.method}]: ${request.data?.id}`);
       debug('proto "request" event [method:%s, data:%o]', request.method, request.data?.id);
 
       switch (request.method) {
@@ -315,7 +318,7 @@ export class DialogAdapter extends EventEmitter {
             this._consumers.set(consumer.id, consumer);
 
             consumer.on("transportclose", () => {
-              this.emitRTCEvent("error", "RTC", () => `Consumer transport closed`);
+              this.emitRTCDebugEvent("error", "RTC", () => `Consumer transport closed`);
               this.removeConsumer(consumer.id);
             });
 
@@ -338,7 +341,7 @@ export class DialogAdapter extends EventEmitter {
             // Notify of an stream update event
             this.emit("stream_updated", peerId, kind);
           } catch (err) {
-            this.emitRTCEvent("error", "Adapter", () => `Error: ${err}`);
+            this.emitRTCDebugEvent("error", "Adapter", () => `Error: ${err}`);
             error('"newConsumer" request failed:%o', err);
 
             throw err;
@@ -437,19 +440,23 @@ export class DialogAdapter extends EventEmitter {
 
     return new Promise((resolve, reject) => {
       this._protoo.on("open", async () => {
-        this.emitRTCEvent("info", "Signaling", () => `Open`);
+        this.emitRTCDebugEvent("info", "Signaling", () => `Open`);
 
         try {
           await this._joinRoom();
           resolve();
           this.emit(DIALOG_CONNECTION_CONNECTED);
         } catch (err) {
-          this.emitRTCEvent("warn", "Adapter", () => `Error during connect: ${error}`);
+          this.emitRTCDebugEvent("warn", "Adapter", () => `Error during connect: ${error}`);
           reject(err);
           this.emit(DIALOG_CONNECTION_ERROR_FATAL);
         }
       });
     });
+  }
+
+  async newConnect() {
+    await createAgora();
   }
 
   async _retryConnectWithNewHost() {
@@ -511,7 +518,7 @@ export class DialogAdapter extends EventEmitter {
   }
 
   removeConsumer(consumerId) {
-    this.emitRTCEvent("info", "RTC", () => `Consumer removed: ${consumerId}`);
+    this.emitRTCDebugEvent("info", "RTC", () => `Consumer removed: ${consumerId}`);
     this._consumers.delete(consumerId);
   }
 
@@ -549,7 +556,7 @@ export class DialogAdapter extends EventEmitter {
       const promise = new Promise((resolve, reject) => (requests[kind] = { resolve, reject }));
       requests[kind].promise = promise;
       promise.catch(e => {
-        this.emitRTCEvent("error", "Adapter", () => `getMediaStream error: ${e}`);
+        this.emitRTCDebugEvent("error", "Adapter", () => `getMediaStream error: ${e}`);
         console.warn(`${clientId} getMediaStream Error`, e);
       });
       return promise;
@@ -580,15 +587,15 @@ export class DialogAdapter extends EventEmitter {
       callback,
       errback // eslint-disable-line no-shadow
     ) => {
-      this.emitRTCEvent("info", "RTC", () => `Send transport [connect]`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Send transport [connect]`);
       this._sendTransport.observer.on("close", () => {
-        this.emitRTCEvent("info", "RTC", () => `Send transport [close]`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Send transport [close]`);
       });
       this._sendTransport.observer.on("newproducer", producer => {
-        this.emitRTCEvent("info", "RTC", () => `Send transport [newproducer]: ${producer.id}`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Send transport [newproducer]: ${producer.id}`);
       });
       this._sendTransport.observer.on("newconsumer", consumer => {
-        this.emitRTCEvent("info", "RTC", () => `Send transport [newconsumer]: ${consumer.id}`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Send transport [newconsumer]: ${consumer.id}`);
       });
 
       this._protoo
@@ -605,13 +612,13 @@ export class DialogAdapter extends EventEmitter {
       if (connectionState === "failed" || connectionState === "disconnected") {
         level = "error";
       }
-      this.emitRTCEvent(level, "RTC", () => `Send transport [connectionstatechange]: ${connectionState}`);
+      this.emitRTCDebugEvent(level, "RTC", () => `Send transport [connectionstatechange]: ${connectionState}`);
 
       this.checkSendIceStatus(connectionState);
     });
 
     this._sendTransport.on("produce", async ({ kind, rtpParameters, appData }, callback, errback) => {
-      this.emitRTCEvent("info", "RTC", () => `Send transport [produce]: ${kind}`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Send transport [produce]: ${kind}`);
       try {
         // eslint-disable-next-line no-shadow
         const { id } = await this._protoo.request("produce", {
@@ -623,7 +630,7 @@ export class DialogAdapter extends EventEmitter {
 
         callback({ id });
       } catch (error) {
-        this.emitRTCEvent("error", "Signaling", () => `[produce] error: ${error}`);
+        this.emitRTCDebugEvent("error", "Signaling", () => `[produce] error: ${error}`);
         errback(error);
       }
     });
@@ -681,15 +688,15 @@ export class DialogAdapter extends EventEmitter {
       callback,
       errback // eslint-disable-line no-shadow
     ) => {
-      this.emitRTCEvent("info", "RTC", () => `Receive transport [connect]`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Receive transport [connect]`);
       this._recvTransport.observer.on("close", () => {
-        this.emitRTCEvent("info", "RTC", () => `Receive transport [close]`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Receive transport [close]`);
       });
       this._recvTransport.observer.on("newproducer", producer => {
-        this.emitRTCEvent("info", "RTC", () => `Receive transport [newproducer]: ${producer.id}`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Receive transport [newproducer]: ${producer.id}`);
       });
       this._recvTransport.observer.on("newconsumer", consumer => {
-        this.emitRTCEvent("info", "RTC", () => `Receive transport [newconsumer]: ${consumer.id}`);
+        this.emitRTCDebugEvent("info", "RTC", () => `Receive transport [newconsumer]: ${consumer.id}`);
       });
 
       this._protoo
@@ -706,7 +713,7 @@ export class DialogAdapter extends EventEmitter {
       if (connectionState === "failed" || connectionState === "disconnected") {
         level = "error";
       }
-      this.emitRTCEvent(level, "RTC", () => `Receive transport [connectionstatechange]: ${connectionState}`);
+      this.emitRTCDebugEvent(level, "RTC", () => `Receive transport [connectionstatechange]: ${connectionState}`);
 
       this.checkRecvIceStatus(connectionState);
     });
@@ -761,7 +768,7 @@ export class DialogAdapter extends EventEmitter {
       console.error("Tried to setLocalMediaStream before a _sendTransport existed");
       return;
     }
-    this.emitRTCEvent("info", "RTC", () => `Creating missing producers`);
+    this.emitRTCDebugEvent("info", "RTC", () => `Creating missing producers`);
     let sawAudio = false;
     let sawVideo = false;
 
@@ -788,7 +795,7 @@ export class DialogAdapter extends EventEmitter {
             });
 
             this._micProducer.on("transportclose", () => {
-              this.emitRTCEvent("info", "RTC", () => `Mic transport closed`);
+              this.emitRTCDebugEvent("info", "RTC", () => `Mic transport closed`);
               this._micProducer = null;
             });
 
@@ -834,11 +841,11 @@ export class DialogAdapter extends EventEmitter {
     });
 
     this._cameraProducer.on("transportclose", () => {
-      this.emitRTCEvent("info", "RTC", () => `Camera transport closed`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Camera transport closed`);
       this.disableCamera();
     });
     this._cameraProducer.observer.on("trackended", () => {
-      this.emitRTCEvent("info", "RTC", () => `Camera track ended`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Camera track ended`);
       this.disableCamera();
     });
   }
@@ -874,11 +881,11 @@ export class DialogAdapter extends EventEmitter {
     });
 
     this._shareProducer.on("transportclose", () => {
-      this.emitRTCEvent("info", "RTC", () => `Desktop Share transport closed`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Desktop Share transport closed`);
       this.disableShare();
     });
     this._shareProducer.observer.on("trackended", () => {
-      this.emitRTCEvent("info", "RTC", () => `Desktop Share transport track ended`);
+      this.emitRTCDebugEvent("info", "RTC", () => `Desktop Share transport track ended`);
       this.disableShare();
     });
   }
@@ -945,7 +952,7 @@ export class DialogAdapter extends EventEmitter {
       this._protoo.removeAllListeners();
       if (this._protoo.connected) {
         this._protoo.close();
-        this.emitRTCEvent("info", "Signaling", () => `[close]`);
+        this.emitRTCDebugEvent("info", "Signaling", () => `[close]`);
       }
     }
   }
@@ -976,7 +983,7 @@ export class DialogAdapter extends EventEmitter {
     });
   }
 
-  emitRTCEvent(level, tag, msgFunc) {
+  emitRTCDebugEvent(level, tag, msgFunc) {
     if (!window.APP.store.state.preferences.showRtcDebugPanel) return;
     const time = new Date().toLocaleTimeString("en-US", {
       hour12: false,

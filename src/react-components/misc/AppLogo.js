@@ -7,6 +7,7 @@ import { isHmc } from "../../utils/isHmc";
 import { useLogo } from "../styles/theme";
 
 export function AppLogo({ className, forceConfigurableLogo }) {
+  return null;
   const logo = useLogo();
   if (isHmc() && !forceConfigurableLogo) {
     return <HmcLogo className="hmc-logo" />;

@@ -11,11 +11,11 @@ export function LoadingScreenLayout({ center, bottom }) {
         <AppLogo className={styles.logo} />
         {center}
       </Column>
-      {bottom && (
+      {/* {bottom && (
         <Column center className={styles.bottom}>
           {bottom}
         </Column>
-      )}
+      )} */}
     </div>
   );
 }

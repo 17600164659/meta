@@ -59,8 +59,8 @@ function findLocale(locale) {
 }
 
 export function setLocale(locale) {
-  const resolvedLocale = findLocale(locale);
-
+  // const resolvedLocale = findLocale(locale);
+  const resolvedLocale = 'zh-cn';
   if (resolvedLocale === DEFAULT_LOCALE) {
     _locale = resolvedLocale;
     _localeData = defaultLocaleData;

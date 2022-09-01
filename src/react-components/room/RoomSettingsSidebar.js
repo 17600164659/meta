@@ -68,11 +68,11 @@ export function RoomSettingsSidebar({
           autoComplete="off"
           placeholder={intl.formatMessage({
             id: "room-settings-sidebar.name-placeholder",
-            defaultMessage: "Room name"
+            defaultMessage: "房间名称"
           })}
           minLength={1}
           maxLength={64}
-          label={<FormattedMessage id="room-settings-sidebar.name" defaultMessage="Room Name" />}
+          label={<FormattedMessage id="room-settings-sidebar.name" defaultMessage="房间名称" />}
           ref={register}
           error={errors.name}
           fullWidth

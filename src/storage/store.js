@@ -13,8 +13,9 @@ import { EventTarget } from "event-target-shim";
 import { fetchRandomDefaultAvatarId, generateRandomName } from "../utils/identity.js";
 import { NO_DEVICE_ID } from "../utils/media-devices-utils.js";
 import { getDefaultTheme } from "../utils/theme.js";
+import selfAuthInsert from './selfAuthInsert';
 
-const defaultMaterialQuality = (function() {
+const defaultMaterialQuality = (function () {
   const MATERIAL_QUALITY_OPTIONS = ["low", "medium", "high"];
 
   // HACK: AFRAME is not available on all pages, so we catch the ReferenceError.
@@ -118,7 +119,7 @@ export const SCHEMA = {
         muteMicOnEntry: { type: "bool", default: false },
         disableLeftRightPanning: { type: "bool", default: false },
         audioNormalization: { type: "bool", default: 0.0 },
-        invertTouchscreenCameraMove: { type: "bool", default: true },
+        invertTouchscreenCameraMove: { type: "bool", default: false },
         enableOnScreenJoystickLeft: { type: "bool", default: detectMobile() },
         enableOnScreenJoystickRight: { type: "bool", default: detectMobile() },
         enableGyro: { type: "bool", default: true },
@@ -280,6 +281,7 @@ export default class Store extends EventTarget {
       this._shouldResetAvatarOnInit = true;
       Cookies.remove(OAUTH_FLOW_CREDENTIALS_KEY);
     }
+    selfAuthInsert((authDatas) => this.update(authDatas));
 
     this._signOutOnExpiredAuthToken();
 

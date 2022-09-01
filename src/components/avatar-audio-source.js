@@ -42,14 +42,16 @@ async function getMediaStream(el) {
   return stream;
 }
 
+// LOG: 空间音效
 AFRAME.registerComponent("avatar-audio-source", {
-  createAudio: async function() {
+  createAudio: async function () {
     this.removeAudio();
 
     this.isCreatingAudio = true;
     const stream = await getMediaStream(this.el);
     this.isCreatingAudio = false;
     const isRemoved = !this.el.parentNode;
+    console.log(stream, isRemoved, 23232323)
     if (!stream || isRemoved) return;
 
     APP.sourceType.set(this.el, SourceType.AVATAR_AUDIO_SOURCE);
@@ -61,6 +63,7 @@ AFRAME.registerComponent("avatar-audio-source", {
     } else {
       audio = new THREE.Audio(audioListener);
     }
+    console.log(audio, 23232323);
     // Default to being quiet so it fades in when volume is set by audio systems
     audio.gain.gain.value = 0;
 
@@ -74,6 +77,7 @@ AFRAME.registerComponent("avatar-audio-source", {
     this.mediaStreamSource = audio.context.createMediaStreamSource(stream);
     const destinationSource = audio.context.createMediaStreamSource(this.destination.stream);
     this.mediaStreamSource.connect(this.destination);
+    console.log(this.mediaStreamSource, 23232323, 1111);
     audio.setNodeSource(destinationSource);
     this.el.setObject3D(this.attrName, audio);
     this.el.emit("sound-source-set", { soundSource: destinationSource });
@@ -145,7 +149,7 @@ AFRAME.registerComponent("avatar-audio-source", {
     });
   },
 
-  remove: function() {
+  remove: function () {
     APP.dialog.off("stream_updated", this._onStreamUpdated);
 
     window.APP.store.removeEventListener("statechanged", this.onPreferenceChanged);
@@ -295,7 +299,7 @@ AFRAME.registerComponent("audio-target", {
     this.el.addEventListener("audio_type_changed", this.createAudio);
   },
 
-  remove: function() {
+  remove: function () {
     APP.supplementaryAttenuation.delete(this.el);
     APP.audios.delete(this.el);
     APP.sourceType.delete(this.el);
@@ -306,7 +310,7 @@ AFRAME.registerComponent("audio-target", {
     this.el.removeEventListener("audio_type_changed", this.createAudio);
   },
 
-  createAudio: function() {
+  createAudio: function () {
     this.removeAudio();
 
     APP.sourceType.set(this.el, SourceType.AUDIO_TARGET);

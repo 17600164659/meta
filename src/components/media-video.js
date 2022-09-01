@@ -514,7 +514,7 @@ AFRAME.registerComponent("media-video", {
       }
 
       let resolved = false;
-      const failLoad = function(e) {
+      const failLoad = function (e) {
         if (resolved) return;
         resolved = true;
         clearTimeout(pollTimeout);
@@ -585,7 +585,7 @@ AFRAME.registerComponent("media-video", {
         // If hls.js is supported we always use it as it gives us better events
       } else if (contentType.startsWith("application/dash")) {
         const dashPlayer = MediaPlayer().create();
-        dashPlayer.extend("RequestModifier", function() {
+        dashPlayer.extend("RequestModifier", function () {
           return { modifyRequestHeader: xhr => xhr, modifyRequestURL: proxiedUrlFor };
         });
         dashPlayer.on(MediaPlayer.events.ERROR, failLoad);
@@ -635,7 +635,7 @@ AFRAME.registerComponent("media-video", {
             hls.loadSource(url);
             hls.attachMedia(videoEl);
 
-            hls.on(HLS.Events.ERROR, function(event, data) {
+            hls.on(HLS.Events.ERROR, function (event, data) {
               if (data.fatal) {
                 switch (data.type) {
                   case HLS.ErrorTypes.NETWORK_ERROR:
@@ -765,7 +765,7 @@ AFRAME.registerComponent("media-video", {
   },
 
   tick: (() => {
-    return function() {
+    return function () {
       if (!this.video) return;
 
       const userinput = this.el.sceneEl.systems.userinput;

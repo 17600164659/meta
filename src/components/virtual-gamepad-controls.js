@@ -54,7 +54,7 @@ AFRAME.registerComponent("virtual-gamepad-controls", {
       this.leftMockSmall.classList.add(styles.hidden);
     }
     if (this.enableRight) {
-      this.createRightStick();
+      // this.createRightStick();
     } else {
       this.rightMock.classList.add(styles.hidden);
       this.rightMockSmall.classList.add(styles.hidden);
@@ -95,7 +95,7 @@ AFRAME.registerComponent("virtual-gamepad-controls", {
       this.leftTouchZone = null;
     }
     if (!this.enableRight && newEnableRight) {
-      this.createRightStick();
+      // this.createRightStick();
     } else if (this.enableRight && !newEnableRight) {
       this.rightMock.classList.add(styles.hidden);
       this.rightMockSmall.classList.add(styles.hidden);

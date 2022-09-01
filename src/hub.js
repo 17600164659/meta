@@ -8,12 +8,12 @@ import "./utils/debug-log";
 import configs from "./utils/configs";
 import "./utils/theme";
 import "@babel/polyfill";
+import request from './utils/fetch';
 
 console.log(
-  `App version: ${
-    configs.IS_LOCAL_OR_CUSTOM_CLIENT
-      ? `Custom client or local client (undeploy custom client to run build ${process.env.BUILD_VERSION})`
-      : process.env.BUILD_VERSION || "?"
+  `App version: ${configs.IS_LOCAL_OR_CUSTOM_CLIENT
+    ? `Custom client or local client (undeploy custom client to run build ${process.env.BUILD_VERSION})`
+    : process.env.BUILD_VERSION || "?"
   }`
 );
 
@@ -139,7 +139,7 @@ import React from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory, createMemoryHistory } from "history";
 import { pushHistoryState } from "./utils/history";
-import UIRoot from "./react-components/ui-root";
+import UIRoot from "./react-components/new-ui-root";
 import { ExitedRoomScreenContainer } from "./react-components/room/ExitedRoomScreenContainer";
 import AuthChannel from "./utils/auth-channel";
 import HubChannel from "./utils/hub-channel";
@@ -595,6 +595,7 @@ function handleHubChannelJoined(entryManager, hubChannel, messageDispatch, data,
 
       // Disconnect in case this is a re-entry
       APP.dialog.disconnect();
+      // APP.dialog.newConnect({
       APP.dialog.connect({
         serverUrl: `wss://${hub.host}:${hub.port}`,
         roomId: hub.hub_id,
@@ -626,6 +627,8 @@ function handleHubChannelJoined(entryManager, hubChannel, messageDispatch, data,
     };
 
     window.APP.hub = hub;
+    const roomDetail = await request.get(`/api/room/detail?sid=${window.APP.hub.hub_id}`);
+    window.RoomDetail = roomDetail;
     updateUIForHub(hub, hubChannel);
     scene.emit("hub_updated", { hub });
 
@@ -648,7 +651,7 @@ function handleHubChannelJoined(entryManager, hubChannel, messageDispatch, data,
 
 async function runBotMode(scene, entryManager) {
   console.log("Running in bot mode...");
-  const noop = () => {};
+  const noop = () => { };
   const alwaysFalse = () => false;
   scene.renderer = {
     setAnimationLoop: noop,

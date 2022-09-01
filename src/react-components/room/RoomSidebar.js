@@ -81,7 +81,7 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       <FormattedMessage id="room-sidebar.scene-info.change-scene-button" defaultMessage="Change Scene" />
     </Button>
   );
-  if (!scene) return changeSceneButton;
+  if (!scene) return null;// changeSceneButton;
   const showSceneLink = allowDisplayOfSceneLink(accountId, scene);
   const attributions = (scene.attributions && scene.attributions.content) || [];
   const creator = scene.attributions && scene.attributions.creator;
@@ -97,9 +97,12 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       </h2>
       <div className={styles.sceneScreenshotContainer}>
         {showSceneLink ? (
-          <a href={scene.url} target="_blank" rel="noopener noreferrer">
+          // <a href={scene.url} target="_blank" rel="noopener noreferrer">
+          //   <img className={styles.sceneScreenshotImage} src={scene.screenshot_url} />
+          // </a>
+          <div rel="noopener noreferrer">
             <img className={styles.sceneScreenshotImage} src={scene.screenshot_url} />
-          </a>
+          </div>
         ) : (
           <img className={styles.sceneScreenshotImage} src={scene.screenshot_url} />
         )}
@@ -107,9 +110,12 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       <div className={styles.sceneInfo}>
         {showSceneLink ? (
           <b className={styles.sceneName}>
-            <a href={scene.url} target="_blank" rel="noopener noreferrer">
+            {/* <a href={scene.url} target="_blank" rel="noopener noreferrer">
               {scene.name}
-            </a>
+            </a> */}
+            <div rel="noopener noreferrer">
+              {scene.name}
+            </div>
           </b>
         ) : (
           <b className={styles.sceneName}>{scene.name}</b>
@@ -130,7 +136,7 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
             <ul className={styles.attributions}>{filteredAttributionElements}</ul>
           </InputField>
         )}
-      {changeSceneButton}
+      {/* {changeSceneButton} */}
     </>
   );
 }

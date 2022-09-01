@@ -194,7 +194,7 @@ AFRAME.registerComponent("pen", {
 
       const cursorPose =
         this.data.drawMode === DRAW_MODE.PROJECTION &&
-        (this.grabberId === "right-cursor" || this.grabberId === "left-cursor")
+          (this.grabberId === "right-cursor" || this.grabberId === "left-cursor")
           ? AFRAME.scenes[0].systems.userinput.get(pathsMap[this.grabberId].pose)
           : null;
 
@@ -288,7 +288,7 @@ AFRAME.registerComponent("pen", {
   _getIntersection: (() => {
     const rawIntersections = [];
     const worldQuaternion = new THREE.Quaternion();
-    return function(cursorPose) {
+    return function (cursorPose) {
       rawIntersections.length = 0;
 
       if (this.data.drawMode === DRAW_MODE.PROJECTION) {
@@ -338,7 +338,7 @@ AFRAME.registerComponent("pen", {
     const laserEndPosition = new THREE.Vector3();
     const camerWorldPosition = new THREE.Vector3();
     const remoteLaserOrigin = new THREE.Vector3();
-    return function(cursorPose, intersection) {
+    return function (cursorPose, intersection) {
       if (cursorPose) {
         laserStartPosition.copy(cursorPose.position);
       } else {
@@ -432,7 +432,7 @@ AFRAME.registerComponent("pen", {
   //helper function to get normal of direction of drawing cross direction to camera
   _getNormal: (() => {
     const directionToCamera = new THREE.Vector3();
-    return function(normal, position, direction) {
+    return function (normal, position, direction) {
       directionToCamera.subVectors(position, this.data.camera.object3D.position).normalize();
       normal.crossVectors(direction, directionToCamera);
     };

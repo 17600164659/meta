@@ -18,9 +18,11 @@ CL.DEFAULT_SPAWNER = CL.INTERACTABLES | CL.HANDS;
 
 const PRIVACY = "https://www.mozilla.org/en-US/privacy/hubs/";
 const TERMS = "https://www.mozilla.org/en-US/about/legal/terms/hubs/";
+const API_SERVER = 'https://api.metaio.cc';
 
 module.exports = {
   COLLISION_LAYERS: CL,
   PRIVACY,
-  TERMS
+  TERMS,
+  API_SERVER
 };

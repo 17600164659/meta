@@ -1,5 +1,6 @@
 import { LogMessageType } from "../react-components/room/ChatSidebar";
 import { GAIN_TIME_CONST, SourceType } from "../components/audio-params";
+import { rtc } from '../agora';
 
 let delayedReconnectTimeout = null;
 function performDelayedReconnect(gainNode) {

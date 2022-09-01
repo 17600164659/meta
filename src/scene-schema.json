@@ -1,0 +1,1297 @@
+{
+    "version": 9,
+    "root": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+    "metadata": {
+        "name": "shiqu",
+        "creatorAttribution": "",
+        "allowRemixing": true,
+        "allowPromotion": true
+    },
+    "entities": {
+        "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC": {
+            "name": "shiqu",
+            "components": [
+                {
+                    "name": "fog",
+                    "props": {
+                        "type": "disabled",
+                        "color": "#ffffff",
+                        "near": 0.0025,
+                        "far": 1000,
+                        "density": 0.0025
+                    }
+                },
+                {
+                    "name": "background",
+                    "props": {
+                        "color": "#aaaaaa"
+                    }
+                },
+                {
+                    "name": "audio-settings",
+                    "props": {
+                        "overrideAudioSettings": false,
+                        "avatarDistanceModel": "inverse",
+                        "avatarRolloffFactor": 5,
+                        "avatarRefDistance": 5,
+                        "avatarMaxDistance": 10000,
+                        "mediaVolume": 0.5,
+                        "mediaDistanceModel": "inverse",
+                        "mediaRolloffFactor": 5,
+                        "mediaRefDistance": 5,
+                        "mediaMaxDistance": 10000,
+                        "mediaConeInnerAngle": 360,
+                        "mediaConeOuterAngle": 0,
+                        "mediaConeOuterGain": 0.9
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {}
+                    }
+                }
+            ]
+        },
+        "E8D3129B-68BF-473F-92B9-6DAEC83514BB": {
+            "name": "Skybox",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": false
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "skybox",
+                    "props": {
+                        "turbidity": 6.09,
+                        "rayleigh": 0.82,
+                        "luminance": 1.055,
+                        "mieCoefficient": 0.043,
+                        "mieDirectionalG": 0.8,
+                        "inclination": 0.10471975511965978,
+                        "azimuth": 0.3,
+                        "distance": 8000
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 0
+        },
+        "2D490729-384D-49AF-A755-9D6F70D56325": {
+            "name": "Floor Plan",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.005,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "floor-plan",
+                    "props": {
+                        "autoCellSize": false,
+                        "cellSize": 0.1200000000000001,
+                        "cellHeight": 0.1,
+                        "agentHeight": 1.7,
+                        "agentRadius": 0.10000000000000009,
+                        "agentMaxClimb": 0.5,
+                        "agentMaxSlope": 35,
+                        "regionMinSize": 0,
+                        "maxTriangles": 1000,
+                        "forceTrimesh": false,
+                        "navMeshMode": "automatic",
+                        "navMeshSrc": ""
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 1
+        },
+        "6D3327B4-D038-4ABC-B6B2-73738550718D": {
+            "name": "Spawn Point",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -72,
+                            "y": 10,
+                            "z": -81
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 1.5707963267948966,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "spawn-point",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 2
+        },
+        "5D4C06F8-981D-46BC-80AA-6B6415E488D3": {
+            "name": "Scene Preview Camera",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -138.49787015291943,
+                            "y": 46.685374006348596,
+                            "z": -52.19259912949923
+                        },
+                        "rotation": {
+                            "x": -0.9063933895318813,
+                            "y": -0.8872070240527353,
+                            "z": -0.7803463064761906
+                        },
+                        "scale": {
+                            "x": 0.9999999999999999,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "scene-preview-camera",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 3
+        },
+        "15283908-E1DE-4D40-B86E-1754807FFCD4": {
+            "name": "111",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 7000,
+                            "y": 7000,
+                            "z": 7000
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/83634d87-b2ae-457c-b025-7845a9e2e27e.jpg",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "360-equirectangular"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 4
+        },
+        "F99E1E40-C5B6-4F08-8F3B-82C0C663502B": {
+            "name": "时趣近年金银奖案例展示-小.mp4",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 1.361997266771123,
+                            "y": 11.584027384455801,
+                            "z": -37.23049449263044
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": -1.5680297705543216,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 21.60000000000006,
+                            "y": 21.600000000000048,
+                            "z": 21.60000000000006
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {
+                            "audio-params": [
+                                "audioType",
+                                "distanceModel",
+                                "refDistance",
+                                "maxDistance",
+                                "gain"
+                            ]
+                        },
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "video",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/84f5ef1a-6ca3-4680-a746-af38f5fee649.mp4",
+                        "controls": true,
+                        "autoPlay": true,
+                        "loop": true,
+                        "projection": "flat"
+                    }
+                },
+                {
+                    "name": "audio-params",
+                    "props": {
+                        "overrideAudioSettings": true,
+                        "audioType": "pannernode",
+                        "gain": 0.050000000000000044,
+                        "distanceModel": "linear",
+                        "rolloffFactor": 5,
+                        "refDistance": 9,
+                        "maxDistance": 30,
+                        "coneInnerAngle": 360,
+                        "coneOuterAngle": 0,
+                        "coneOuterGain": 0.9
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 5
+        },
+        "BEB0BF86-35F6-4928-85C5-FF4CF77CDE1F": {
+            "name": "走廊两面墙-01.jpg",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -57.57538843161009,
+                            "y": 13.054074858125782,
+                            "z": -74.24829763421204
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 3.141592653589793,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 33.2,
+                            "y": 33.2,
+                            "z": 33.2
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/c0041982-5478-4872-a3ec-e0e3d1872613.jpg",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 6
+        },
+        "C1960D43-4028-442C-9EE9-098012ACD6A5": {
+            "name": "走廊两面墙-02xiugai.jpg",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -54.8562811709206,
+                            "y": 13.017049815194207,
+                            "z": -87.72374812946104
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 27.5,
+                            "y": 27.5,
+                            "z": 27.5
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/dfe79103-5c63-4ed3-a8a7-4a711ecfbac9.jpg",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 7
+        },
+        "75BDDEA6-D0EF-4AA3-A89D-45B1FD3B2AED": {
+            "name": "Hemisphere Light",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "hemisphere-light",
+                    "props": {
+                        "skyColor": "#ffffff",
+                        "groundColor": "#ffffff",
+                        "intensity": 1
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 8
+        },
+        "662FB7EB-AA16-4903-9173-08400FB97ECB": {
+            "name": "1signs 7.20.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": false,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/6a39b59f-5c67-4c3a-91a5-901000ee563d.glb",
+                        "attribution": {
+                            "title": "1signs 7.20"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 9
+        },
+        "D70DBB1D-B932-41B7-94BF-F5204DA54131": {
+            "name": "MetaioLOGO演绎压缩.mp4",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 34.56172937946863,
+                            "y": 32.61092346948022,
+                            "z": 52.03480216042494
+                        },
+                        "rotation": {
+                            "x": -3.141592653589793,
+                            "y": 0.8027078415266727,
+                            "z": -3.141592653589793
+                        },
+                        "scale": {
+                            "x": 13.5,
+                            "y": 13.5,
+                            "z": 13.5
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": false,
+                        "modifiedProperties": {
+                            "audio-params": [
+                                "gain",
+                                "distanceModel",
+                                "maxDistance",
+                                "coneInnerAngle",
+                                "refDistance"
+                            ]
+                        },
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "video",
+                    "props": {
+                        "src": "https://itmedia.social-touch.com/live/yuanyuzhou.m3u8",
+                        "controls": true,
+                        "autoPlay": true,
+                        "loop": true,
+                        "projection": "flat"
+                    }
+                },
+                {
+                    "name": "audio-params",
+                    "props": {
+                        "overrideAudioSettings": true,
+                        "audioType": "pannernode",
+                        "gain": 0.2,
+                        "distanceModel": "linear",
+                        "rolloffFactor": 5,
+                        "refDistance": 9,
+                        "maxDistance": 30,
+                        "coneInnerAngle": 107,
+                        "coneOuterAngle": 0,
+                        "coneOuterGain": 0.9
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 10
+        },
+        "D6250A04-4DC6-4396-9D79-AB1DFAAF7976": {
+            "name": "路牌.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": false,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/a0b315c6-6bd7-4ba0-809b-099d26131874.glb",
+                        "attribution": {
+                            "title": "路牌"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 11
+        },
+        "F992C275-BB37-45C7-8000-E1B2ABBB1ABB": {
+            "name": "未标题-4 1的副本.jpg",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 34.50504031793813,
+                            "y": 32.61092346948022,
+                            "z": 52.089510649891984
+                        },
+                        "rotation": {
+                            "x": -3.141592653589793,
+                            "y": 0.8101149760383263,
+                            "z": -3.141592653589793
+                        },
+                        "scale": {
+                            "x": 13.500000000000021,
+                            "y": 13.5,
+                            "z": 13.500000000000021
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://itmedia.social-touch.com/live/yuanyuzhou2.m3u8",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 12
+        },
+        "91966A8E-57A2-4B3E-8648-36B3BED5C952": {
+            "name": "元宇宙空间-社群福利大礼包.png",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -58.0246083594832,
+                            "y": 5.598334658594975,
+                            "z": -84.85554335086954
+                        },
+                        "rotation": {
+                            "x": -0.19198621771937624,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.1,
+                            "y": 1.1,
+                            "z": 1.1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/6015929a-497a-4b14-a654-5eb6ff6eb7f5.png",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 13
+        },
+        "1B59E04C-CC92-4EAD-9891-ED2DCDD6A0E7": {
+            "name": "元宇宙空间-元宇宙报告大礼包.png",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 20.941374130477396,
+                            "y": 26.971370622667404,
+                            "z": 32.36999529051448
+                        },
+                        "rotation": {
+                            "x": -1.990681111965431,
+                            "y": 1.359388813392891,
+                            "z": 1.9991251220776929
+                        },
+                        "scale": {
+                            "x": 1.0000000000000004,
+                            "y": 0.9999999999999964,
+                            "z": 1.0000000000000036
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/c36579d1-a493-4f3d-8e5d-24811b5647c5.png",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 14
+        },
+        "1EF3B953-46E8-477F-B44F-A7B6EB91B13C": {
+            "name": "二维码架子.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/31484c60-c793-4f0c-b0db-2e993da3ae32.glb",
+                        "attribution": {
+                            "title": "二维码架子"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 15
+        },
+        "2C19E119-2042-45BB-ABF1-14170B01D729": {
+            "name": "海报路牌.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/44d1431b-9071-4843-bcc9-e4b7ef24c198.glb",
+                        "attribution": {
+                            "title": "海报路牌"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 16
+        },
+        "840E61B7-C132-4CE4-9617-1598D3C20F15": {
+            "name": "shiqu LOGO 1.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -49.125467497840845,
+                            "y": -0.5999999999999999,
+                            "z": -111.39999999999999
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": -1.5707963267948966,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.6000000000000001,
+                            "y": 0.6000000000000001,
+                            "z": 0.6000000000000001
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/d1b9f70e-8313-42ed-955e-54a25317d89c.glb",
+                        "attribution": {
+                            "title": "shiqu LOGO 1"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 17
+        },
+        "D69A43D2-97E6-4FBC-AD84-2E383A918A19": {
+            "name": "7.25  final edit.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/cf839bac-4c33-4876-9408-d8770992ccf8.glb",
+                        "attribution": {
+                            "title": "7.25  final edit"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 18
+        },
+        "602C1787-546F-4206-B66E-169A2E1C138B": {
+            "name": "点击进入会场.glb",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": -12.2,
+                            "y": 5.6000000000000005,
+                            "z": -21.200000000000003
+                        },
+                        "rotation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": -0.017453292519943295
+                        },
+                        "scale": {
+                            "x": 0.7,
+                            "y": 0.7,
+                            "z": 0.7
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "gltf-model",
+                    "props": {
+                        "src": "https://app.metaio.cc/files/7279e016-35c1-4001-b033-4a17b6a9bc72.glb",
+                        "attribution": {
+                            "title": "点击进入会场"
+                        }
+                    }
+                },
+                {
+                    "name": "shadow",
+                    "props": {
+                        "cast": false,
+                        "receive": false
+                    }
+                },
+                {
+                    "name": "collidable",
+                    "props": {}
+                },
+                {
+                    "name": "walkable",
+                    "props": {}
+                },
+                {
+                    "name": "combine",
+                    "props": {}
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 19
+        },
+        "04729DB6-C6EA-4715-9AC7-766E636A0A4A": {
+            "name": "WechatIMG687.png",
+            "components": [
+                {
+                    "name": "transform",
+                    "props": {
+                        "position": {
+                            "x": 56.108006194814415,
+                            "y": 3.2757571599001554,
+                            "z": 56.53521768282135
+                        },
+                        "rotation": {
+                            "x": 0.1762725350564832,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 0.9999999999999999,
+                            "z": 0.9999999999999999
+                        }
+                    }
+                },
+                {
+                    "name": "visible",
+                    "props": {
+                        "visible": true
+                    }
+                },
+                {
+                    "name": "editor-settings",
+                    "props": {
+                        "enabled": true,
+                        "modifiedProperties": {},
+                        "enabledProperties": {}
+                    }
+                },
+                {
+                    "name": "image",
+                    "props": {
+                        "src": "https://cdn.metaio.cc/files/c52b5900-bb62-44e4-a74d-b50b6065c5a5.png",
+                        "controls": true,
+                        "alphaMode": "opaque",
+                        "alphaCutoff": 0.5,
+                        "projection": "flat"
+                    }
+                }
+            ],
+            "parent": "2266BED7-6CC4-48A6-95DD-9BCD3CF9EAFC",
+            "index": 20
+        }
+    }
+}
